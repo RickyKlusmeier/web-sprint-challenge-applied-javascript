@@ -38,6 +38,9 @@ const Card = (article) => {
   authordiv.append(imgContainer, authName);
   imgContainer.appendChild(image);
 
+  card.addEventListener("click", function() {
+    console.log(article.headline)
+  });
   return card
 }
 
@@ -53,16 +56,6 @@ const cardAppender = (selector) => {
 
   const obj = ["javascript", "bootstrap", "technology", "jquery", "node.js"];
 
-  // axios.get("https://lambda-times-api.herokuapp.com/articles").then((res) => {
-  //   obj.forEach((topic) => {
-  //       res.data.articles[topic].forEach((data) => {
-  //         document.querySelector(selector).appendChild(Card(data));
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // });
   axios 
   .get(`https://lambda-times-api.herokuapp.com/articles`)
   .then((res) => {
